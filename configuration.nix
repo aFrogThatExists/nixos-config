@@ -101,11 +101,14 @@
   environment.systemPackages = with pkgs; [
     wget
     vscodium 
-    alacritty
+    alacritty # TERMINAL
     git
     gh
-    evolution
-    discord
+    evolution # EMAIL
+    discord 
+    prismlauncher # MC
+    jdk17 # MC
+
   ];
 
 

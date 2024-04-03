@@ -103,6 +103,7 @@
   	vscodium 
     alacritty
     git
+    gh
   ];
 
 

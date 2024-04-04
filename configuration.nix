@@ -112,7 +112,19 @@
 
 
     # -- PROGRAMMING -- #
-    vscodium 
+    (vscode-with-extensions.override {
+      vscode = vscodium;
+      vscodeExtensions = with vscode-extensions; [
+        golang.go
+        bbenoist.nix
+        streetsidesoftware.code-spell-checker
+      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [{
+        name = "timer";
+        publisher = "dharmey";
+        version = "2.0.0";
+        sha256 = "sjOTqEvOA49AqzLjaDImFVDH73FoJY1FpuNEy6kGS+c=";
+      }];
+    })
     git
     gh
     go

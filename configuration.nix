@@ -110,6 +110,7 @@
     git
     gh
     go
+    docker
 
     # -- SCHOOL / WORK -- #
     evolution # EMAIL

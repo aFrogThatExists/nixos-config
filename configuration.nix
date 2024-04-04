@@ -99,19 +99,36 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    # -- GENERAL -- #
     wget
+    alacritty 
+    shutter # SCREENSHOT
+    gimp 
+
+    # -- PROGRAMMING -- #
     vscodium 
-    alacritty # TERMINAL
     git
     gh
+    go
+
+    # -- SCHOOL / WORK -- #
     evolution # EMAIL
+
+    # -- SOCIAL -- #
     discord 
+
+    # -- GAMES -- #
     prismlauncher # MC
     jdk17 # MC
-
+    steam 
+    
   ];
-
-
+  
+  hardware.bluetooth.settings = {
+    General = {
+      Enable = "Source,Sink,Media,Socket";
+    };
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

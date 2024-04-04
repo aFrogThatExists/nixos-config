@@ -105,8 +105,11 @@
     # -- GENERAL -- #
     wget
     alacritty 
+    fish
     shutter # SCREENSHOT
     gimp 
+    killall
+
 
     # -- PROGRAMMING -- #
     vscodium 

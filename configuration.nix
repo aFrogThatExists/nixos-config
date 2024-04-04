@@ -93,7 +93,7 @@
   };
 
 
-
+  
   virtualisation.docker.enable = true; # Enable Docker
 
   # Allow unfree packages
@@ -129,7 +129,9 @@
     steam 
     
   ];
-  
+  programs.fish.enable = true; # Enable fish system-wide ?
+  users.defaultUserShell = pkgs.fish; # Make fish default shell 
+
   hardware.bluetooth.settings = {
     General = {
       Enable = "Source,Sink,Media,Socket";

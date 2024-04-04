@@ -93,6 +93,9 @@
   };
 
 
+
+  virtualisation.docker.enable = true; # Enable Docker
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -110,7 +113,6 @@
     git
     gh
     go
-    docker
 
     # -- SCHOOL / WORK -- #
     evolution # EMAIL

@@ -151,6 +151,12 @@
   programs.fish.enable = true; # Enable fish system-wide ?
   users.defaultUserShell = pkgs.fish; # Make fish default shell 
 
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+  };
+  
   hardware.bluetooth.settings = {
     General = {
       Enable = "Source,Sink,Media,Socket";

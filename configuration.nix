@@ -108,8 +108,9 @@
     fish
     shutter # SCREENSHOT
     gimp 
-    killall
-
+    killall 
+    obs-studio
+    vlc
 
     # -- PROGRAMMING -- #
     (vscode-with-extensions.override {
@@ -128,6 +129,8 @@
     git
     gh
     go
+    android-tools
+    ollama
 
     # -- SCHOOL / WORK -- #
     evolution # EMAIL
@@ -141,6 +144,10 @@
     steam 
     
   ];
+  boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
+  boot.kernelModules = [
+      "v4l2loopback"
+  ] ;
   programs.fish.enable = true; # Enable fish system-wide ?
   users.defaultUserShell = pkgs.fish; # Make fish default shell 
 

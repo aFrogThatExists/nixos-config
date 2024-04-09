@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports =
@@ -27,8 +27,10 @@
   # Set your time zone.
   time.timeZone = "Europe/Stockholm";
 
+
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
+
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "sv_SE.UTF-8";
@@ -130,8 +132,9 @@
     gh
     go
     android-tools
-    ollama
-
+    cudaPackages.cudatoolkit
+    (pkgs.ollama.override { acceleration = "cuda";  }) # OLLAMA
+    
     # -- SCHOOL / WORK -- #
     evolution # EMAIL
 
@@ -144,6 +147,7 @@
     steam 
     
   ];
+
   boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
   boot.kernelModules = [
       "v4l2loopback"
@@ -162,6 +166,11 @@
       Enable = "Source,Sink,Media,Socket";
     };
   };
+
+  services.xserver.videoDrivers = [ "nvidia" ];
+
+  # -- OLLAMA -- #
+  
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

@@ -112,7 +112,6 @@
     wget
     alacritty 
     fish
-    shutter # SCREENSHOT
     gimp 
     killall 
     obs-studio

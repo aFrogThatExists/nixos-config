@@ -105,6 +105,10 @@
   environment.systemPackages = with pkgs; [
     
     # -- GENERAL -- #
+    tor-browser
+    wireguard-tools
+    torrential
+    chromium
     wget
     alacritty 
     fish
@@ -116,6 +120,7 @@
     hunspell
     hunspellDicts.sv-se
     hunspellDicts.en_US
+    
 
     # -- PROGRAMMING -- #
     (vscode-with-extensions.override {
@@ -135,7 +140,7 @@
     gh
     go
     android-tools
-    cudaPackages.cudatoolkit
+    # cudaPackages.cudatoolkit
     (pkgs.ollama.override { acceleration = "cuda";  }) # OLLAMA
     
     # -- SCHOOL / WORK -- #

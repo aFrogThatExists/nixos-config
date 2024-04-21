@@ -105,6 +105,7 @@
   environment.systemPackages = with pkgs; [
     
     # -- GENERAL -- #
+    gparted
     tor-browser
     wireguard-tools
     torrential
@@ -119,8 +120,10 @@
     hunspell
     hunspellDicts.sv-se
     hunspellDicts.en_US
+    appimage-run
+    steam-run # Not the games platform
+    ventoy
     
-
     # -- PROGRAMMING -- #
     (vscode-with-extensions.override {
       vscode = vscodium;
@@ -133,17 +136,26 @@
         publisher = "dharmey";
         version = "2.0.0";
         sha256 = "sjOTqEvOA49AqzLjaDImFVDH73FoJY1FpuNEy6kGS+c=";
+      }] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [{
+        name = "kotlin";
+        publisher = "fwcd";
+        version = "0.2.34";
+        sha256 = "03F6cHIA9Tx8IHbVswA8B58tB8aGd2iQi1i5+1e1p4k=";
       }];
     })
     git
     gh
     go
-    android-tools
+    android-studio
+    jdk21
     # cudaPackages.cudatoolkit
     (pkgs.ollama.override { acceleration = "cuda";  }) # OLLAMA
+    burpsuite
+    nodejs_21
     
     # -- SCHOOL / WORK -- #
     evolution # EMAIL
+    libreoffice
 
     # -- SOCIAL -- #
     discord 
@@ -176,8 +188,8 @@
 
   services.xserver.videoDrivers = [ "nvidia" ];
 
-  # -- OLLAMA -- #
-  
+  # -- LICENSES-- #
+  nixpkgs.config.android_sdk.accept_license = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
